@@ -1,0 +1,13 @@
+{
+  "name": "aaron-ries-portfolio",
+  "version": "1.0.0",
+  "description": "Aaron Ries portfolio website with AI-powered search",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "cd backend && node server.js",
+    "dev": "cd backend && node server.js"
+  },
+  "keywords": ["portfolio", "aaron-ries", "digital-product"],
+  "author": "Aaron Ries",
+  "license": "ISC"
+}

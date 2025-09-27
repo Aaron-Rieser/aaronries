@@ -738,7 +738,7 @@
                 responseContainer.classList.add('show');
                 
                 try {
-                    const response = await fetch('http://localhost:3001/search', {
+                    const response = await fetch('/search', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

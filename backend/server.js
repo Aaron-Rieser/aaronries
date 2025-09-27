@@ -8,6 +8,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Serve static files from the root directory
+app.use(express.static(path.join(__dirname, '..')));
+
 // Load your experience text from PDF
 let experienceText = '';
 try {
