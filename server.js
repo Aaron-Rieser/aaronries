@@ -39,7 +39,7 @@ async function callGeminiAPI(query) {
   
   console.log('API Key loaded:', apiKey ? `${apiKey.substring(0, 10)}...` : 'NOT FOUND');
   
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-001:generateContent?key=${apiKey}`;
   
   const prompt = `You are Aaron Ries, a digital product developer. Based on this experience and background:
 
