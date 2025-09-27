@@ -2,12 +2,18 @@
   "name": "aaron-ries-portfolio",
   "version": "1.0.0",
   "description": "Aaron Ries portfolio website with AI-powered search",
-  "main": "backend/server.js",
+  "main": "server.js",
   "scripts": {
-    "start": "cd backend && node server.js",
-    "dev": "cd backend && node server.js"
+    "start": "node server.js",
+    "dev": "node server.js"
   },
   "keywords": ["portfolio", "aaron-ries", "digital-product"],
   "author": "Aaron Ries",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "pdf-parse": "^1.1.1"
+  }
 }
