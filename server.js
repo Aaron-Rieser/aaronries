@@ -32,7 +32,14 @@ AI-Powered Content Platform: Developed a content management system with integrat
 // Function to call Gemini API
 async function callGeminiAPI(query) {
   const apiKey = process.env.GEMINI_API_KEY;
-  const url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
+  
+  if (!apiKey) {
+    throw new Error('GEMINI_API_KEY environment variable is not set');
+  }
+  
+  console.log('API Key loaded:', apiKey ? `${apiKey.substring(0, 10)}...` : 'NOT FOUND');
+  
+  const url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
   
   const prompt = `You are Aaron Ries, a digital product developer. Based on this experience and background:
 
@@ -63,7 +70,13 @@ IMPORTANT: Provide a helpful, professional response about Aaron's experience and
     });
 
     if (!response.ok) {
-      throw new Error(`API request failed: ${response.status}`);
+      const errorText = await response.text();
+      console.error('Gemini API Error Details:', {
+        status: response.status,
+        statusText: response.statusText,
+        body: errorText
+      });
+      throw new Error(`API request failed: ${response.status} - ${errorText}`);
     }
 
     const data = await response.json();
