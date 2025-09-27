@@ -12,8 +12,10 @@ app.use(express.json());
 // Serve static files from the current directory
 app.use(express.static(__dirname));
 
-// Initialize Google GenAI client
-const ai = new GoogleGenAI({});
+// Initialize Google GenAI client with API key
+const ai = new GoogleGenAI({
+  apiKey: process.env.GEMINI_API_KEY
+});
 
 // Load your experience text from PDF
 let experienceText = '';
