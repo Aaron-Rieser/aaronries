@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
+const { GoogleGenAI } = require('@google/genai');
 require('dotenv').config();
 
 const app = express();
@@ -10,6 +11,9 @@ app.use(express.json());
 
 // Serve static files from the current directory
 app.use(express.static(__dirname));
+
+// Initialize Google GenAI client
+const ai = new GoogleGenAI({});
 
 // Load your experience text from PDF
 let experienceText = '';
@@ -29,7 +33,7 @@ Data Visualization Dashboard: Created an interactive dashboard for analyzing com
 AI-Powered Content Platform: Developed a content management system with integrated AI capabilities for automated content generation and optimization. The platform serves media companies and content creators with intelligent workflow automation.`;
 }
 
-// Function to call Gemini API
+// Function to call Gemini API using Google GenAI SDK
 async function callGeminiAPI(query) {
   const apiKey = process.env.GEMINI_API_KEY;
   
@@ -38,8 +42,6 @@ async function callGeminiAPI(query) {
   }
   
   console.log('API Key loaded:', apiKey ? `${apiKey.substring(0, 10)}...` : 'NOT FOUND');
-  
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-001:generateContent?key=${apiKey}`;
   
   const prompt = `You are Aaron Ries, a digital product developer. Based on this experience and background:
 
@@ -50,36 +52,12 @@ User question: ${query}
 IMPORTANT: Provide a helpful, professional response about Aaron's experience and projects. Keep it conversational and informative. Your response must be EXACTLY 150 words or fewer. Count your words carefully and stop at 150 words maximum.`;
 
   try {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        contents: [
-          {
-            parts: [
-              {
-                text: prompt
-              }
-            ]
-          }
-        ]
-      })
+    const response = await ai.models.generateContent({
+      model: "gemini-2.5-flash",
+      contents: prompt
     });
-
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error('Gemini API Error Details:', {
-        status: response.status,
-        statusText: response.statusText,
-        body: errorText
-      });
-      throw new Error(`API request failed: ${response.status} - ${errorText}`);
-    }
-
-    const data = await response.json();
-    let responseText = data.candidates[0].content.parts[0].text;
+    
+    let responseText = response.text;
     
     // Enforce 150 word limit
     const words = responseText.split(' ');
