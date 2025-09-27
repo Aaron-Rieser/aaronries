@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aaron.ries</title>
+    <link rel="icon" type="image/jpeg" href="Aaron Ries headshot 2025.jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sixtyfour:wght@400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .sticky-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .sticky-header.visible {
+            transform: translateY(0);
+        }
+
+        .sticky-name {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        .sticky-contact {
+            color: #888888;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 300;
+            transition: color 0.3s ease, font-weight 0.3s ease;
+        }
+
+        .sticky-contact:hover {
+            color: #ffffff;
+        }
+
+        .sticky-contact.contact-emphasis {
+            animation: emphasizeContact 1.5s ease-in-out;
+        }
+
+        @keyframes emphasizeContact {
+            0% { font-weight: 300; color: #888888; }
+            50% { font-weight: 700; color: #ffffff; }
+            100% { font-weight: 300; color: #888888; }
+        }
+
+        .name {
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #888888 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #888888;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .headshot {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 2rem auto;
+            display: block;
+            object-fit: cover;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            filter: grayscale(20%) contrast(1.1);
+            box-shadow: 
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .headshot::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            z-index: -1;
+        }
+
+        .headshot:hover {
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.4);
+            filter: grayscale(0%) contrast(1.2);
+            box-shadow: 
+                0 0 0 1px rgba(255, 255, 255, 0.2),
+                0 12px 40px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .headshot {
+            cursor: pointer;
+        }
+
+        .experience-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: rgba(0, 0, 0, 0.95);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            z-index: 1000;
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .experience-popup.show {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        .experience-popup h3 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .experience-popup p {
+            color: #cccccc;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .popup-overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Main content */
+        main {
+            padding: 2rem 0 6rem;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 6rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            color: #cccccc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Case studies */
+        .search-section {
+            margin: 4rem 0;
+            text-align: center;
+            animation: fadeInUp 1s ease-out 0.5s both;
+            position: relative;
+            z-index: 20;
+        }
+
+        .search-title {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .search-subtitle {
+            font-size: 1rem;
+            color: #888888;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 20;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            color: #ffffff;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: #666666;
+        }
+
+        .search-input:focus {
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+        }
+
+        .search-button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .response-container {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: none;
+            animation: fadeInUp 0.5s ease-out;
+            position: relative;
+            z-index: 20;
+            backdrop-filter: blur(5px);
+        }
+
+        .response-container.show {
+            display: block;
+        }
+
+        .response-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .response-text {
+            color: #cccccc;
+            line-height: 1.7;
+            font-size: 1rem;
+            text-align: left;
+        }
+
+        .case-studies {
+            position: relative;
+            margin-top: 2rem;
+            padding: 1rem 0;
+            z-index: 5;
+        }
+
+        .scroll-line {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, #ffffff, transparent);
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        
+        .case-study {
+            transition: transform 0.3s ease;
+        }
+        
+        .case-study.scroll-grow {
+            transform: scale(1.15);
+        }
+
+
+        .case-study {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.6s ease;
+            opacity: 0;
+            transform: translateY(50px);
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 10;
+            backdrop-filter: blur(5px);
+        }
+
+        .case-study.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .case-study:hover {
+            background: rgba(0, 0, 0, 0.9);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        /* Desktop staggered layout */
+        @media (min-width: 768px) {
+            .case-study:nth-child(odd) {
+                margin-right: 50%;
+                margin-left: 0;
+                padding-right: 3rem;
+                margin-top: 0;
+            }
+
+            .case-study:nth-child(even) {
+                margin-left: 50%;
+                margin-right: 0;
+                padding-left: 3rem;
+                margin-top: 2rem;
+            }
+
+            .scroll-line {
+                left: 50%;
+                width: 2px;
+            }
+
+            .scroll-line::before {
+                content: '';
+                position: absolute;
+                left: -4px;
+                top: 0;
+                width: 10px;
+                height: 10px;
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 50%;
+                transform: translateX(-50%);
+            }
+
+            .scroll-line::after {
+                content: '';
+                position: absolute;
+                left: -4px;
+                bottom: 0;
+                width: 10px;
+                height: 10px;
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Mobile full width */
+        @media (max-width: 767px) {
+            .case-study {
+                margin-left: 0;
+                margin-right: 0;
+                width: 100%;
+            }
+
+            .scroll-line {
+                left: 20px;
+                width: 2px;
+            }
+        }
+
+        .case-study h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .case-study p {
+            color: #aaaaaa;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #666666;
+        }
+
+        footer a {
+            color: #888888;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .name {
+                font-size: 2.5rem;
+            }
+            
+            .case-studies {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sticky-header" id="stickyHeader">
+        <h1 class="sticky-name">aaron.ries</h1>
+        <a href="#" class="sticky-contact">Contact</a>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1 class="name">aaron.ries</h1>
+            <p class="tagline">digital product</p>
+            <img src="Aaron Ries headshot 2025.jpeg" alt="aaron ries headshot 2025" class="headshot">
+        </header>
+
+        <main>
+            <section class="intro">
+                <p>Proven success launching and scaling digital products in media and retail, managing performance products and leading teams to beat revenue and engagement plans. I turn digital goals into results.</p>
+            </section>
+
+            <section class="search-section">
+                <h2 class="search-title">💬 Ask me about my experience</h2>
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Ask about my projects or skills...">
+                    <button class="search-button">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="response-container" id="responseContainer">
+                    <div class="response-title">
+                        <span>💬</span>
+                        <span>Aaron's Response</span>
+                    </div>
+                    <div class="response-text" id="responseText"></div>
+                </div>
+            </section>
+
+            <section class="case-studies">
+                <div class="scroll-line" id="scrollLine"></div>
+                
+                <div class="case-study" data-delay="0">
+                    <h3>📈 How I Generated $2.3M in First-Year Revenue</h3>
+                    <p>Led the launch of a new digital advertising platform that generated $2.3M in first-year revenue, exceeding targets by 40%. Developed and executed go-to-market strategy for performance products, resulting in 60% increase in client acquisition and 35% improvement in customer lifetime value across media and retail verticals.</p>
+                </div>
+
+                <div class="case-study" data-delay="1">
+                    <h3>🎯 The Team Leadership Formula That Cut Time-to-Market by 45%</h3>
+                    <p>Managed a cross-functional team of 12 product managers and engineers to deliver a mobile-first content management system serving 100K+ daily active users. Achieved top employee rating while navigating ambiguous requirements, reducing time-to-market by 45% and increasing user engagement by 28% through data-driven product decisions.</p>
+                </div>
+
+                <div class="case-study" data-delay="2">
+                    <h3>👥 How I Transformed a Legacy Media Company and Saved 30% in Costs</h3>
+                    <p>Architected and implemented a complete digital transformation for a legacy media company, migrating 50+ products to cloud infrastructure. Reduced operational costs by 30% while improving system reliability to 99.9% uptime. Led change management initiatives that resulted in 95% team adoption of new processes and tools.</p>
+                </div>
+
+                <div class="case-study" data-delay="3">
+                    <h3>🚀 The Attribution Model That Boosted ROI by 65%</h3>
+                    <p>Built and optimized performance marketing campaigns generating $5M+ in attributed revenue across multiple channels. Developed proprietary attribution models that improved campaign ROI by 65% and reduced customer acquisition costs by 40%. Created automated reporting dashboards used by 200+ stakeholders for real-time decision making.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 aaron.ries</p>
+        </footer>
+    </div>
+
+    <!-- Experience Popup -->
+    <div class="popup-overlay" id="popupOverlay"></div>
+    <div class="experience-popup" id="experiencePopup">
+        <h3 id="popupTitle">Experience Highlight</h3>
+        <p id="popupText">Click to see a random achievement!</p>
+    </div>
+
+    <script>
+        // Scroll effects and sticky header
+        document.addEventListener('DOMContentLoaded', function() {
+            const stickyHeader = document.getElementById('stickyHeader');
+            const scrollLine = document.getElementById('scrollLine');
+            const caseStudies = document.querySelectorAll('.case-study');
+            const stickyContact = document.querySelector('.sticky-contact');
+            
+            // Sticky header functionality
+            function handleScroll() {
+                const scrollY = window.scrollY;
+                
+                // Show/hide sticky header
+                if (scrollY > 200) {
+                    stickyHeader.classList.add('visible');
+                } else {
+                    stickyHeader.classList.remove('visible');
+                }
+                
+                // Update journey line animation
+                updateScrollEffects(scrollY);
+                
+                // Check if user has reached bottom and trigger contact emphasis
+                const documentHeight = document.documentElement.scrollHeight;
+                const windowHeight = window.innerHeight;
+                const scrollBottom = scrollY + windowHeight;
+                
+                // If within 100px of bottom, trigger contact emphasis
+                if (scrollBottom >= documentHeight - 100) {
+                    if (!stickyContact.classList.contains('contact-emphasis')) {
+                        stickyContact.classList.add('contact-emphasis');
+                        // Remove the class after animation completes
+                        setTimeout(() => {
+                            stickyContact.classList.remove('contact-emphasis');
+                        }, 1500);
+                    }
+                }
+                
+                // Reveal case studies on scroll
+                caseStudies.forEach((study, index) => {
+                    const studyTop = study.offsetTop;
+                    const studyHeight = study.offsetHeight;
+                    const windowHeight = window.innerHeight;
+                    const revealPoint = studyTop - windowHeight + studyHeight * 0.5;
+                    
+                    if (scrollY > revealPoint) {
+                        setTimeout(() => {
+                            study.classList.add('revealed');
+                        }, index * 200); // Stagger the reveals
+                    }
+                });
+            }
+            
+            function updateScrollEffects(scrollY) {
+                const caseStudiesSection = document.querySelector('.case-studies');
+                const sectionTop = caseStudiesSection.offsetTop;
+                const sectionHeight = caseStudiesSection.offsetHeight;
+                const windowHeight = window.innerHeight;
+                
+                // Calculate scroll progress through the section
+                const progress = Math.max(0, Math.min(1, (scrollY - sectionTop + windowHeight) / sectionHeight));
+                
+                // Update scroll line height
+                scrollLine.style.height = `${progress * 100}%`;
+                
+                // Check each case study for growth effect
+                caseStudies.forEach((card, index) => {
+                    const cardTop = card.offsetTop;
+                    const cardHeight = card.offsetHeight;
+                    const cardCenter = cardTop + cardHeight / 2;
+                    const viewportCenter = scrollY + windowHeight / 2;
+                    
+                    // If viewport center is near card center, grow the card
+                    const distance = Math.abs(viewportCenter - cardCenter);
+                    const threshold = windowHeight * 0.3; // Grow when within 30% of viewport height
+                    
+                    if (distance < threshold) {
+                        card.classList.add('scroll-grow');
+                    } else {
+                        card.classList.remove('scroll-grow');
+                    }
+                });
+            }
+            
+            // Initial reveal for first case study
+            if (window.scrollY > 0) {
+                handleScroll();
+            }
+            
+            window.addEventListener('scroll', handleScroll);
+            
+            // Profile image click functionality
+            const headshot = document.querySelector('.headshot');
+            const popupOverlay = document.getElementById('popupOverlay');
+            const experiencePopup = document.getElementById('experiencePopup');
+            const popupTitle = document.getElementById('popupTitle');
+            const popupText = document.getElementById('popupText');
+            
+            const experienceHighlights = [
+                { title: "Revenue Achievement", text: "Generated $2.3M in first-year revenue, exceeding targets by 40%" },
+                { title: "Team Leadership", text: "Led 12-person cross-functional team, reducing time-to-market by 45%" },
+                { title: "Digital Transformation", text: "Migrated 50+ products to cloud, saving 30% in operational costs" },
+                { title: "Performance Marketing", text: "Built attribution models that boosted campaign ROI by 65%" },
+                { title: "Client Growth", text: "Increased client acquisition by 60% through strategic GTM approach" },
+                { title: "User Engagement", text: "Delivered mobile CMS serving 100K+ daily active users" },
+                { title: "Cost Optimization", text: "Reduced customer acquisition costs by 40% through data-driven optimization" },
+                { title: "Platform Adoption", text: "Achieved 95% team adoption of new processes and tools" }
+            ];
+            
+            function showRandomExperience() {
+                const randomIndex = Math.floor(Math.random() * experienceHighlights.length);
+                const highlight = experienceHighlights[randomIndex];
+                
+                popupTitle.textContent = highlight.title;
+                popupText.textContent = highlight.text;
+                
+                popupOverlay.classList.add('show');
+                experiencePopup.classList.add('show');
+            }
+            
+            function hideExperience() {
+                popupOverlay.classList.remove('show');
+                experiencePopup.classList.remove('show');
+            }
+            
+            headshot.addEventListener('click', showRandomExperience);
+            popupOverlay.addEventListener('click', hideExperience);
+            
+            // Search functionality
+            const searchInput = document.querySelector('.search-input');
+            const searchButton = document.querySelector('.search-button');
+            
+            // Handle search button click
+            searchButton.addEventListener('click', handleSearch);
+            
+            // Handle Enter key press
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    handleSearch();
+                }
+            });
+            
+            async function handleSearch() {
+                const query = searchInput.value.trim();
+                const responseContainer = document.getElementById('responseContainer');
+                const responseText = document.getElementById('responseText');
+                
+                if (!query) {
+                    responseText.textContent = 'Please enter a question!';
+                    responseContainer.classList.add('show');
+                    return;
+                }
+                
+                // Show loading state
+                searchButton.innerHTML = '<div style="width: 16px; height: 16px; border: 2px solid #ffffff; border-top: 2px solid transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>';
+                searchButton.disabled = true;
+                responseText.textContent = 'Thinking...';
+                responseContainer.classList.add('show');
+                
+                try {
+                    const response = await fetch('http://localhost:3001/search', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ query })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    if (data.error) {
+                        responseText.textContent = 'Error: ' + data.error;
+                    } else {
+                        // Display the AI response
+                        responseText.textContent = data.answer;
+                    }
+                } catch (error) {
+                    console.error('Search error:', error);
+                    responseText.textContent = 'Sorry, there was an error connecting to the server. Make sure the backend is running on port 3001.';
+                } finally {
+                    // Reset button
+                    searchButton.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>';
+                    searchButton.disabled = false;
+                }
+            }
+        });
+        
+        // Add CSS for loading spinner
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
