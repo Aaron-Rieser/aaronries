@@ -1,4 +1,3 @@
-
 Product Marketing and Commercialization Leader
 
 SUMMARY
@@ -28,36 +27,106 @@ HTML & JavaScript
 Adobe Experience Manager
 Adobe Premiere Pro, Adobe Photoshop
 
-CURRENT ROLE: Product Marketing Manager, Walmart Canada (2025-Present)
-Lead end-to-end commercialization and lifecycle management of Walmart Canada's onsite display advertising products from ad servers to new onsite ad placements and measurement solutions. Own roadmap from alpha through GA, aligning cross-functional stakeholders, ensuring product-market fit, and delivering revenue against plan.
+ROLES 
+Sorted in chronological order, by recency
+Role: Product Marketing Manager
+Organization: Walmart Canada
+Timeline: 2025–Present
+Summary: Lead the end-to-end commercialization and lifecycle management of Walmart Canada’s onsite new display advertising products — from ad servers, new onsite ad placements, and measurement solutions. Own the roadmap from alpha through GA, aligning cross-functional stakeholders, ensuring product–market fit, and delivering revenue against plan.
+Build the commercialization roadmap for all new onsite display products, balancing business strategy, customer insights, and technical requirements.
+Drive executive alignment on product strategy and ensure new offerings fit marketplace needs.
+Translate complex technical features into clear narratives and positioning that resonate with customers and drive adoption.
+Lead Alpha, Beta, and GA rollout phases; design processes and operational models for successful transitions from legacy systems.
+Partner with product, engineering, and data teams to scope features, log bugs, request enhancements, and bundle capabilities into new revenue-driving packages.
+Design customer journeys and touchpoints, creating compelling experiences across adoption, billing, and support.
+Build GTM plans, manage budgets, and execute launch tactics to achieve product adoption and revenue growth.
+Create sales offers, collateral, and thought leadership content to enable sales teams and establish market credibility.
+Develop customer-facing support products and documentation to ensure a seamless experience.
+Directly manage vertical revenue against plan while uncovering new growth opportunities.
+Collaborate across core product stakeholders to resolve conflicts, ensure strategy alignment, and support long-term innovation.
+Role: Senior Manager, Content Marketing 
+Organization: CBC 
+Timeline: 2021–2025
+Summary: Built and scaled a sustainable business unit for native advertising across CBC’s streaming, web, and audio platforms. Owned full product strategy cycle — from research and roadmap to commercialization and adoption — while leading a team of program managers to exceed revenue goals for four consecutive years.
+Launched 10+ first-to-market native ad products, delivering 1.5B+ impressions and measurable brand lift, including a 70% average lift in brand consideration.
+Exceeded revenue goals 4 consecutive years (178% to target on average) by driving adoption of innovative ad formats and aligning with advertiser needs.
+Managed a team of 4 program managers; ranked in 91st percentile for leadership among 800+ managers, reflecting strong change management and team development.
+Created roadmap for native Connected TV solutions, leading cross-functional teams through research, user personas, value propositions, sales toolkits, and launch.
+Developed GTM strategies and playbooks adopted company-wide, ensuring repeatable success for new product launches.
+Built comprehensive education and enablement programs for sales teams, reducing time-to-adoption by 33% versus plan.
+Established advertiser feedback loops with product teams, enabling rapid iteration on features and fixes.
+Created thought leadership content and innovative sales collateral that positioned CBC as an industry expert and drove demand through content marketing strategy.
+Owned team budget, sales enablement, and product marketing expenses, optimizing spend for growth.
+Implemented real-time campaign optimization dashboards and executive reporting for advertisers, increasing transparency and performance tracking.
+Designed a research framework to validate campaign efficacy, influencing adoption by proving direct brand lift and business impact.
 
-Build commercialization roadmap for all new onsite display products, balancing business strategy, customer insights, and technical requirements. Drive executive alignment on product strategy and ensure new offerings fit marketplace needs. Translate complex technical features into clear narratives and positioning that resonate with customers and drive adoption. Lead Alpha, Beta, and GA rollout phases, designing processes and operational models for successful transitions from legacy systems. Partner with product, engineering, and data teams to scope features, log bugs, request enhancements, and bundle capabilities into new revenue-driving packages. Design customer journeys and touchpoints, creating compelling experiences across adoption, billing, and support. Build GTM plans, manage budgets, and execute launch tactics to achieve product adoption and revenue growth. Create sales offers, collateral, and thought leadership content to enable sales teams and establish market credibility. Develop customer-facing support products and documentation to ensure seamless experience. Directly manage vertical revenue against plan while uncovering new growth opportunities. Collaborate across core product stakeholders to resolve conflicts, ensure strategy alignment, and support long-term innovation.
 
-PREVIOUS ROLE: Senior Manager, Content Marketing, CBC (2021-2025)
-Built and scaled sustainable business unit for native advertising across CBC's streaming, web, and audio platforms. Owned full product strategy cycle from research and roadmap to commercialization and adoption while leading team of program managers to exceed revenue goals for four consecutive years.
+Role: Manager, Activation 
+Organization: CBC 
+Timeline: 2018–2021
 
-Launched 10+ first-to-market native ad products, delivering 1.5B+ impressions and measurable brand lift, including 70% average lift in brand consideration. Exceeded revenue goals 4 consecutive years (178% to target on average) by driving adoption of innovative ad formats and aligning with advertiser needs. Managed team of 4 program managers, ranked in 91st percentile for leadership among 800+ managers, reflecting strong change management and team development. Created roadmap for native Connected TV solutions, leading cross-functional teams through research, user personas, value propositions, sales toolkits, and launch. Developed GTM strategies and playbooks adopted company-wide, ensuring repeatable success for new product launches. Built comprehensive education and enablement programs for sales teams, reducing time-to-adoption by 33% versus plan. Established advertiser feedback loops with product teams, enabling rapid iteration on features and fixes. Created thought leadership content and innovative sales collateral that positioned CBC as industry expert and drove demand through content marketing strategy. Owned team budget, sales enablement, and product marketing expenses, optimizing spend for growth. Implemented real-time campaign optimization dashboards and executive reporting for advertisers, increasing transparency and performance tracking. Designed research framework to validate campaign efficacy, influencing adoption by proving direct brand lift and business impact.
+Summary: Built a strong foundation in digital program management by leading campaign activation, implementing new ad platforms, and creating scalable systems for digital advertising operations. Managed a team of project managers and cross-functional partners to deliver 300+ custom campaigns annually while driving efficiency, adoption, and cost savings.
+Directed digital campaign activation for all custom advertising, managing a team of 4 project managers and launching 300+ campaigns per year.
+Designed and implemented standardized campaign creation processes, reducing launch timelines and improving client satisfaction.
+Developed a campaign performance system to ensure delivery against client goals and optimize results.
+Oversaw the build of 30+ client microsites annually, managing UX design, engineering, databases, QA, analytics, and ongoing operations.
+Implemented a tag management system in response to market needs, modernizing campaign tracking and analytics.
+Managed $2M+ annual production budget, reducing costs year-over-year through process optimization and vendor management.
+Created training resources and enablement materials for project managers, improving adoption of new products and reducing ramp-up time.
+Role: Marketing Strategy Lead, Current Affairs
+Organization: TVO 
+Timeline: 2016–2018
 
-PREVIOUS ROLE: Manager, Activation, CBC (2018-2021)
-Built strong foundation in digital program management by leading campaign activation, implementing new ad platforms, and creating scalable systems for digital advertising operations. Managed team of project managers and cross-functional partners to deliver 300+ custom campaigns annually while driving efficiency, adoption, and cost savings.
+Summary: Brand Marketing lead for Current Affairs and Documentaries at TVO, working to grow digital audiences through marketing strategy.
+Drove digital marketing strategy for Current Affairs portfolio, achieving 113% audience growth
+Planned marketing strategy across social, search, digital, cross-promotional and mass media tactics 
+Sold through marketing strategies to executives, based on research and fit 
+Worked with creative teams to bring strategies to life 
+Managed internal stakeholder alignment between editorial, publicity, corporate and product teams to execute all marketing strategies
 
-Directed digital campaign activation for all custom advertising, managing team of 4 project managers and launching 300+ campaigns per year. Designed and implemented standardized campaign creation processes, reducing launch timelines and improving client satisfaction. Developed campaign performance system to ensure delivery against client goals and optimize results. Oversaw build of 30+ client microsites annually, managing UX design, engineering, databases, QA, analytics, and ongoing operations. Implemented tag management system in response to market needs, modernizing campaign tracking and analytics. Managed $2M+ annual production budget, reducing costs year-over-year through process optimization and vendor management. Created training resources and enablement materials for project managers, improving adoption of new products and reducing ramp-up time.
 
-KEY ACHIEVEMENTS
-Built native ad unit business from $0 to $10 million annually based on comprehensive business plan. Exceeded 4-year revenue goals in 3 years, beating revenue forecasts by 178% to target on average each year. Led business unit and all necessary products to meet targets, managed teams and commercialized all units. First year saw major PR crisis for advertising division drawing criticism in parliament. Managed line of business tactfully and worked on reimagined business strategy that fit goals without drawing negative publicity.
+Role: Brand Associate
+Organization: Corus Entertainment  
+Timeline: 2014–2016
 
-Managed commercialization and relaunch of new Native tile product for CBC Homepage feeds, achieving 2x content engagement as result.
+Summary: Brand Associate working on marketing for a select suite of Corus Entertainment brands 
+Led multi-platform launch campaigns for Seasons 3 and 4 of History Channel’s Vikings as well as marketing National Geographic Canada
 
-Developed long-form end roll video product for CBC GEM that lowered cost for long-form views for branded content campaigns by 50x by generating long-form views directly in Connected TV feeds. Secured over $2 million in campaigns for this new unit.
+Role:  Marketing Assistant 
+Organization: TIFF 
+Timeline: 2013–2014
 
-Developed long-form YouTube amplification model for content, offsite distribution of advertiser content. Mapped appropriate brand channels, secured approvals, designed packages, created performance and optimization modeling, and commercialized.
+Summary: Marketing assistant working on theatrical releases and exhibitions 
+Created marketing plans to promote exhibitions and theatrical releases 
+Designed new marketing tactics testing out experiential activations and retail OOH tactics 
 
-Developed content performance model for branded content using regression analysis to forecast performance and optimize towards platform that fit each campaign. Modeling boosted sales by increasing velocity of presale conversations, allowing unlock of more sophisticated advertisers and quantify new products requiring explanations.
+Next 
 
-Used AI to save Walmart $300k and ship new Advertiser Help Site in record time, meeting changing timelines and providing advertisers content on how to use Walmart's new Self-Serve advertising platform.
+Case studies 
 
-Developed new Walmart Homepage Takeover package as part of commercialization of new Homepage units. Launched homepage units with new sold-out Beta phase. Secured approvals and designed packages for Takeover product, first of its kind for Walmart Canada.
+Native ad unit business plan over long term
+Built a new line of business from $0 to $10 million annually based on a comprehensive business plan. Exceeded 4-year revenue goals in 3 years, and on average beat revenue forecasts by 178% to target each year. Led the business unit and all necessary products to meet targets, managed teams and commercialized all units. Moreover, the first year saw a major PR crisis for the advertising division and this business line - drawing criticism in parliament. I managed the line of business tactfully and worked on a reimagined business strategy that fit our goals and would not draw negative publicity. 
 
-Created social media app with AI coding tools and custom HTML and JavaScript. Created all necessary SQL databases independently. Created product EPIC, user story, strategy and design. Managed deployment and QA.
+Native tile redesign - product deep dive 
+Managed the commercialization and relaunch of a new Native tile product for CBC Homepage feeds, 2x content engagement as a result. 
 
-Contact: aaron.j.ries@gmail.com | 416.992.2816 | Toronto, Canada
+Long form end roll product
+Developed a long-form end roll video product for CBC GEM that lowered cost for long-form views for branded content campaigns by 50x by generating long-form views directly in Connected TV feeds. Secured over $2 million in campaigns for this new unit.  
+
+YouTube amplification model
+Developed a long-form YouTube amplification model for content, offsite distribution of advertiser content. Mapped out appropriate brand channels, secured approvals, designed packages, created performance and optimization modeling, and commercialized. 
+
+Performance modeling
+Developed a content performance model for branded content that used regression analysis to forecast performance of content and optimize towards platform that fit each campaign. Modeling boosted sales by increasing the velocity of presale conversations, allowing us to unlock more sophisticated advertisers, and quantify new products that required explanations. 
+
+Walmart Help Center
+Used AI to save Walmart $300k and ship a new Advertiser Help Site in record time, meeting changing timelines and providing advertisers content on how to use Walmart's new Self-Serve advertising platform. 
+
+Walmart Homepage Takeover
+Developed a new Walmart Homepage Takeover package as part of the commercialization of new Homepage units. Launched homepage units with a new sold-out Beta phase. Secured approvals and designed packages for Takeover product, a first of its kind for Walmart Canada. 
+Gumshoo social app
+Created a social media app with AI coding tools, and custom HTML and JavaScript. Created all necessary SQL databases independently. Created product EPIC, user story, strategy and design. Managed deployment and QA. 
+
+Content 
+
+Dziadzio - A short film I directed premiered at TIFF, and then played 10+ film festivals around the world. I directed, produced and wrote this film. This was my first short film. This shows my ability to manage a creative project from start to finish and get up to speed on a new product quickly.
